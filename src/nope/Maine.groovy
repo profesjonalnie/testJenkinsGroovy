@@ -2,7 +2,7 @@ package nope
 
 def buildImage(args = [:]) {
 
-    printf("abcfwefefawfwrawfawfawfafafa aaaaaaaaa");
+    print "abcfwefefawfwrawfawfawfafafa aaaaaaaaa"
 }
 
 return this
