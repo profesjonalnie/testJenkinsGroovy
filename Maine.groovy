@@ -1,3 +1,4 @@
+package org.mainn
 
 def buildImage(args = [:]) {
 
