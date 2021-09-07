@@ -7,6 +7,7 @@ def buildImage(args = [:]) {
     def credentials = [azureServicePrincipal(credentialsId: credentialsId, clientIdVariable: 'clientId', clientSecretVariable: 'clientSecret')]
 
         withCredentials(credentials) {
+            sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
             sh "az aks list"
             sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg" // -f - > /home/.kubeconfig"
             // sh "KUBECONFIG=/home/.kubeconfig"
