@@ -7,8 +7,9 @@ def buildImage(args = [:]) {
     def credentials = [azureServicePrincipal(credentialsId: credentialsId, clientIdVariable: 'clientId', clientSecretVariable: 'clientSecret')]
 
         withCredentials(credentials) {
-            sh "az aks get-credentials --admin --name ${clusterName}aks --resource-group ${clusterName}-aks-rg -f - >  ~/.kube/config"
-            sh "az account show --query id -o tsv"
+            sh "az aks get-credentials --admin --name ev4aks --resource-group ev4-aks-rg -f - >  ~/.kube/config"
+            sh "KUBECONFIG=~/.kube/config"
+            sh "kubectl config get-contexts"
             }
 }
 
