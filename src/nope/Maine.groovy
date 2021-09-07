@@ -4,7 +4,7 @@ def buildImage(args = [:]) {
 
     print "abcfwefefawfwrawfawfawfafafa aaaaaaaaa"
     def credentialsId = args.credentialsId
-    def credentials = [azureServicePrincipal(credentialsId: credentialsId, clientIdVariable: 'clientId', clientSecretVariable: 'clientSecret')]
+    def credentials = [azureServicePrincipal(credentialsId: credentialsId)]
 
         withCredentials(credentials) {
             sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
