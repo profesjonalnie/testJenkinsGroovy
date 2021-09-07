@@ -8,7 +8,7 @@ def buildImage(args = [:]) {
 
         withCredentials(credentials) {
             sh "az aks get-credentials --admin --name ev4aks --resource-group ev4-aks-rg -f - >  ${WORKSPACE}/.kubeconfig"
-            sh "KUBECONFIG=~/.kubeconfig"
+            sh "KUBECONFIG=${WORKSPACE}/.kubeconfig"
             sh "kubectl config get-contexts"
             }
 }
