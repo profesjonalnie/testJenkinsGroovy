@@ -16,9 +16,9 @@ def buildImage(args = [:]) {
         sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
     }
     sh "az aks list"
-    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin"
+    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin --subscription Everest-Develop"
     sh "kubectl config get-contexts"
-    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin"
+    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin --subscription Everest-Develop"
     sh "az account show --query tenantId -o tsv"
     sh "az account show --query id -o tsv"
 
@@ -33,7 +33,7 @@ def importingFunc(args = [:]){
 
 def secondFunction(args = [:]){
     print "I'm in a second function"
-    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin"
+    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin  --subscription Everest-Develop"
     sh "az aks list"
 }
 
