@@ -21,8 +21,8 @@ def buildImage(args = [:]) {
     sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin"
     sh "az account show --query tenantId -o tsv"
     sh "az account show --query id -o tsv"
-    
-    importingFunc()
+
+    // importingFunc()
 }
 
 def importingFunc(args = [:]){
