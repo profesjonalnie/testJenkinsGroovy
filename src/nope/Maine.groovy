@@ -25,6 +25,7 @@ def buildImage(args = [:]) {
 
 def secondFunction(args = [:]){
     print "I'm in a second function"
+    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin"
     sh "az aks list"
 }
 
