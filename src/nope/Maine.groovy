@@ -15,10 +15,9 @@ def buildImage(args = [:]) {
 
     withCredentials(credentials) {
     sh 'response=$(curl -X POST -d "grant_type=client_credentials&client_id=${AZURE_CLIENT_ID}&client_secret=${AZURE_CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.azure.com%2F" https://login.microsoftonline.com/${AZURE_TENANT_ID}/oauth2/token); \
-    token=$(echo $response | jq ".access_token" -r); \
-    kubeconfigResponse=$(curl -X POST -H "Authorization: Bearer ${token}" -d "" https://management.azure.com/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourceGroups/${environment}-aks-rg/providers/Microsoft.ContainerService/managedClusters/${environment}aks/listClusterAdminCredential?api-version=2021-05-01); \
-    echo $kubeconfigResponse | jq ".kubeconfigs[0].value" -r | base64 -d > .kubeconfig; \
-    cat .kubeconfig'
+        token=$(echo $response | jq ".access_token" -r); \
+        kubeconfigResponse=$(curl -X POST -H "Authorization: Bearer ${token}" -d "" https://management.azure.com/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourceGroups/' + environment + '-aks-rg/providers/Microsoft.ContainerService/managedClusters/' + environment + 'aks/listClusterAdminCredential?api-version=2021-05-01); \
+        echo $kubeconfigResponse | jq ".kubeconfigs[0].value" -r | base64 -d '
     }
     // importingFunc()
 }
@@ -31,8 +30,9 @@ def importingFunc(args = [:]){
 
 def secondFunction(args = [:]){
     print "I'm in a second function"
-    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin  --subscription Everest-Develop"
-    sh "az aks list"
+    // sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin  --subscription Everest-Develop"
+    // sh "az aks list"
+    sh "pwd"
 }
 
 
