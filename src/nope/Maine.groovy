@@ -11,17 +11,16 @@ def buildImage(args = [:]) {
     print "abcfwefefawfwrawfawfawfafafa aaaaaaaaa"
     def credentialsId = args.credentialsId
     def credentials = [azureServicePrincipal(credentialsId: credentialsId)]
+    def environment="ev4"
 
     withCredentials(credentials) {
-        sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
-    }
-    sh "az aks list"
-    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin --subscription Everest-Develop"
-    sh "kubectl config get-contexts"
-    sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin --subscription Everest-Develop"
-    sh "az account show --query tenantId -o tsv"
-    sh "az account show --query id -o tsv"
+    sh 'response=$(curl -X POST -d "grant_type=client_credentials&client_id=${AZURE_CLIENT_ID}&client_secret=${AZURE_CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.azure.com%2F" https://login.microsoftonline.com/${AZURE_TENANT_ID}/oauth2/token)'
 
+    sh 'token=$(echo $response | jq ".access_token" -r)'
+    sh 'kubeconfigResponse=$(curl -X POST -H "Authorization: Bearer ${token}" -d "" https://management.azure.com/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourceGroups/${environment}-aks-rg/providers/Microsoft.ContainerService/managedClusters/${environment}aks/listClusterAdminCredential?api-version=2021-05-01)'
+    sh 'echo $kubeconfigResponse | jq ".kubeconfigs[0].value" -r | base64 -d > .kube/config'
+    sh 'cat .kube/config'
+    }
     // importingFunc()
 }
 
