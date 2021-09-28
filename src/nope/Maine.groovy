@@ -20,6 +20,7 @@ def buildImage(args = [:]) {
         echo $kubeconfigResponse | jq ".kubeconfigs[0].value" -r | base64 -d '
     }
     // importingFunc()
+    return
 }
 
 def importingFunc(args = [:]){
