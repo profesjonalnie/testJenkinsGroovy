@@ -14,7 +14,8 @@ def buildImage(args = [:]) {
     def environment="ev4"
 
     withCredentials(credentials) {
-    sh 'response=$(curl -X POST -d "grant_type=client_credentials&client_id=${AZURE_CLIENT_ID}&client_secret=${AZURE_CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.azure.com%2F" https://login.microsoftonline.com/${AZURE_TENANT_ID}/oauth2/token); \
+    sh 'set +x; \
+    response=$(curl -X POST -d "grant_type=client_credentials&client_id=${AZURE_CLIENT_ID}&client_secret=${AZURE_CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.azure.com%2F" https://login.microsoftonline.com/${AZURE_TENANT_ID}/oauth2/token); \
         token=$(echo $response | jq ".access_token" -r); \
         kubeconfigResponse=$(curl -X POST -H "Authorization: Bearer ${token}" -d "" https://management.azure.com/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourceGroups/' + environment + '-aks-rg/providers/Microsoft.ContainerService/managedClusters/' + environment + 'aks/listClusterAdminCredential?api-version=2021-05-01); \
         echo $kubeconfigResponse | jq ".kubeconfigs[0].value" -r | base64 -d '
