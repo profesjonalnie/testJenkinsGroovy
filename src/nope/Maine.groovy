@@ -2,7 +2,7 @@ package nope
 
 import nope.ToImportFunctions
 
-class Maine(){
+class Maine{
 
 def imported = new ToImportFunctions();
 
