@@ -34,7 +34,7 @@ def testingOne(args = [:]){
         print "Nothing I'm getting, zero TAG_NAME: ${args.TAG_NAME}"
         print args.TAG_NAME
     }
-    imported.greet()
+    new ToImportFunctions().greet()
 }
 
 def importingFunc(args = [:]){
