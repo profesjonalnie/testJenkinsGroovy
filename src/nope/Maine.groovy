@@ -24,6 +24,15 @@ def buildImage(args = [:]) {
     return
 }
 
+def testingOne(args = [:]){
+    if(args.TAG_NAME){
+        print "Hurrey, I've got ${args.TAG_NAME}"
+    } else {
+        print "Nothing I'm getting, zero TAG_NAME: ${args.TAG_NAME}"
+        print args.TAG_NAME
+    }
+}
+
 def importingFunc(args = [:]){
     GroovyShell shell = new GroovyShell()
     def tools = shell.parse(new File('ToImportFunctions.groovy'))
