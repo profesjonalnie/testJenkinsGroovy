@@ -1,7 +1,10 @@
 package nope
 
 import nope.ToImportFunctions
-imported = new ToImportFunctions();
+
+class Maine(){
+
+def imported = new ToImportFunctions();
 
 def installKubectl(args = [:]){
     sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
@@ -34,7 +37,7 @@ def testingOne(args = [:]){
         print "Nothing I'm getting, zero TAG_NAME: ${args.TAG_NAME}"
         print args.TAG_NAME
     }
-    imported.greet()
+    this.imported.greet()
 }
 
 def importingFunc(args = [:]){
@@ -53,3 +56,4 @@ def secondFunction(args = [:]){
 
 
 return this
+}
