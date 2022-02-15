@@ -28,6 +28,7 @@ def buildImage(args = [:]) {
 
 def testingOne(args = [:]){
     def imported = new ToImportFunctions();
+    print "${!args.TAG_NAME}"
     if(args.TAG_NAME){
         print "Hurrey, I've got ${args.TAG_NAME}"
     } else {
