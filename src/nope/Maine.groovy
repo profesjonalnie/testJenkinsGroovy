@@ -52,8 +52,4 @@ def secondFunction(args = [:]){
     // sh "az aks list"
     sh "pwd"
 }
-
-
-
-return this
 }
