@@ -1,6 +1,7 @@
 package nope
 
 import nope.ToImportFunctions
+imported = new ToImportFunctions();
 
 def installKubectl(args = [:]){
     sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
@@ -27,7 +28,6 @@ def buildImage(args = [:]) {
 }
 
 def testingOne(args = [:]){
-    def imported = new ToImportFunctions();
     if(args.TAG_NAME){
         print "Hurrey, I've got ${args.TAG_NAME}"
     } else {
