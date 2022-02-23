@@ -49,4 +49,8 @@ def secondFunction(args = [:]){
     // sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin  --subscription Everest-Develop"
     // sh "az aks list"
     sh "pwd"
+    println "${env.GIT_COMMIT}"
+    println "${GIT_COMMIT}"
+    println "${env.WORKSPACE}"
+    println "${WORKSPACE}"
 }
