@@ -9,11 +9,11 @@ def abc = "abecadło z piecuka zpadeło"
 @Field
 def imported = new ToImportFunctions()
 
-zmieniona = ""
+zmienna = ""
 
-Maine(String zmienna){
-    this.zmieniona = args.zmienna
-}
+// Maine(String zmienna){
+//     this.zmieniona = args.zmienna
+// }
 
 def installKubectl(args = [:]){
     sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
