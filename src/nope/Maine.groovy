@@ -42,7 +42,7 @@ def buildImage(args = [:]) {
 
 def testingOne(args = [:]){
     print "TAG_NAME: ${!args.TAG_NAME}"
-    print "zmieniona: ${zmieniona}"
+    print "zmienna: ${zmienna}"
     if(args.TAG_NAME){
         print "Hurrey, I've got ${args.TAG_NAME}"
     } else {
