@@ -12,7 +12,7 @@ def imported = new ToImportFunctions()
 @Field
 def zmieniona = ""
 
-Maine(args = [:]){
+Maine(String zmienna){
     this.zmieniona = args.zmienna
 }
 
