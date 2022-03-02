@@ -1,6 +1,7 @@
 package nope
 
 import nope.ToImportFunctions
+import groovy.transform.Field
 
 @Field 
 def abc = "abecadło z piecuka zpadeło"
