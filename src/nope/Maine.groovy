@@ -9,8 +9,7 @@ def abc = "abecadło z piecuka zpadeło"
 @Field
 def imported = new ToImportFunctions()
 
-@Field
-def zmieniona = ""
+zmieniona = ""
 
 Maine(String zmienna){
     this.zmieniona = args.zmienna
