@@ -2,6 +2,8 @@ package nope
 
 import nope.ToImportFunctions
 
+def abc = "abecadło z piecuka zpadeło"
+
 def installKubectl(args = [:]){
     sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
     sh 'install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl'
@@ -36,6 +38,12 @@ def testingOne(args = [:]){
         print args.TAG_NAME
     }
     imported.greet()
+
+    if(args.abc){
+        println "abc was provided: ${args.abc}"
+    } else {
+        println "NOT provided abc, so i'm getting declared inside groovy file: ${abc}"
+    }
 }
 
 def importingFunc(args = [:]){
