@@ -64,3 +64,5 @@ def secondFunction(args = [:]){
     println "${env.WORKSPACE}"
     println "${WORKSPACE}"
 }
+
+return this
