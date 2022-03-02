@@ -51,6 +51,8 @@ def testingOne(args = [:]){
     }
     imported.greet()
 
+    assert abc!=(null || ""):"You have to provide projectName"
+
     if(args.abc){
         println "abc was provided: ${args.abc}. So I'll override it."
         abc = args.abc
