@@ -2,7 +2,8 @@ package nope
 
 import nope.ToImportFunctions
 
-abc = "abecadło z piecuka zpadeło"
+@Field 
+def abc = "abecadło z piecuka zpadeło"
 
 def installKubectl(args = [:]){
     sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
