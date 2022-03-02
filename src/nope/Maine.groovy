@@ -44,7 +44,8 @@ def testingOne(args = [:]){
     imported.greet()
 
     if(args.abc){
-        println "abc was provided: ${args.abc}"
+        println "abc was provided: ${args.abc}. So I'll override it."
+        abc = args.abc
     } else {
         println "NOT provided abc, so i'm getting declared inside groovy file: ${abc}"
     }
@@ -60,7 +61,7 @@ def secondFunction(args = [:]){
     print "I'm in a second function"
     // sh "az aks get-credentials --name ev4aks --resource-group ev4-aks-rg --admin  --subscription Everest-Develop"
     // sh "az aks list"
-    sh "pwd"
+    println "abc is ${abc}"
     def enableLintDockerfile = args.enableLintDockerfile?: false
     println "enableLintDockerfile gave as args? ${enableLintDockerfile}"
     println "${env.GIT_COMMIT}"
