@@ -51,7 +51,6 @@ def testingOne(args = [:]){
     }
     imported.greet()
 
-    assert abc != null && abc != ""  :"You have to provide projectName"
     // assert  :"You have to provide projectName"
 
     if(args.abc){
@@ -60,6 +59,7 @@ def testingOne(args = [:]){
     } else {
         println "NOT provided abc, so i'm getting declared inside groovy file: ${abc}"
     }
+    assert abc != null && abc != ""  :"You have to provide projectName"
 }
 
 def importingFunc(args = [:]){
