@@ -2,7 +2,7 @@ package nope
 
 import nope.ToImportFunctions
 
-def abc = "abecadło z piecuka zpadeło"
+abc = "abecadło z piecuka zpadeło"
 
 def installKubectl(args = [:]){
     sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
@@ -64,5 +64,3 @@ def secondFunction(args = [:]){
     println "${env.WORKSPACE}"
     println "${WORKSPACE}"
 }
-
-return this
