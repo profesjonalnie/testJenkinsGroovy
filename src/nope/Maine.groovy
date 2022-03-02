@@ -51,7 +51,7 @@ def testingOne(args = [:]){
     }
     imported.greet()
 
-    assert abc != "" && abc != null  :"You have to provide projectName"
+    assert abc != null && abc != ""  :"You have to provide projectName"
     // assert  :"You have to provide projectName"
 
     if(args.abc){
