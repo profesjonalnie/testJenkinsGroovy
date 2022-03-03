@@ -51,8 +51,7 @@ def testingOne(args = [:]){
         print args.TAG_NAME
     }
     imported.greet()
-    build(parameters: "fisrt/master/124")
-    // assert  :"You have to provide projectName"
+    // build(job: "fisrt/master/124")
 
     if(args.abc){
         println "abc was provided: ${args.abc}. So I'll override it."
