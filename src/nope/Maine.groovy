@@ -51,6 +51,7 @@ def testingOne(args = [:]){
         print args.TAG_NAME
     }
     imported.greet()
+    build("fisrt")
 
     // assert  :"You have to provide projectName"
 
