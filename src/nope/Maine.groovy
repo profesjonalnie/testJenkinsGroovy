@@ -51,8 +51,7 @@ def testingOne(args = [:]){
         print args.TAG_NAME
     }
     imported.greet()
-    build("fisrt")
-
+    build(job: "fisrt/master/124")
     // assert  :"You have to provide projectName"
 
     if(args.abc){
