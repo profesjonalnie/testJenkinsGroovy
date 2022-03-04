@@ -78,3 +78,18 @@ def secondFunction(args = [:]){
     println "${env.WORKSPACE}"
     println "${WORKSPACE}"
 }
+
+// dla większej czytelności logów
+def msgFlatten(def list, def msgs) {
+   list = list ?: []
+   if (!(msgs instanceof String) && !(msgs instanceof GString)) {
+       msgs.each { msg ->
+           list = msgFlatten(list, msg)
+       }
+   }
+   else {
+       list += msgs
+   }
+
+   return  list
+}
