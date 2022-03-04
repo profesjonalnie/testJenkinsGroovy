@@ -3,14 +3,11 @@ package nope
 import nope.ToImportFunctions
 import groovy.transform.Field
 
-@Field 
-def abc = ""
+@Field def abc = ""
 
-@Field
-def imported = new ToImportFunctions()
+@Field def imported = new ToImportFunctions()
 
-@Field
-zmienna = ""
+@Field zmienna = ""
 
 // Maine(String zmienna){
 //     this.zmieniona = args.zmienna
