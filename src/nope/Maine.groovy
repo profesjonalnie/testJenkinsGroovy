@@ -38,7 +38,6 @@ def buildImage(args = [:]) {
 }
 
 def testingOne(args = [:]){
-    print "TAG_NAME: ${TAG_NAME}"
     print "GIT_URL: ${GIT_URL}, env.GIT_URL: ${env.GIT_URL}"
     print "BUILD_NUMBER: ${BUILD_NUMBER}, env.BUILD_NUMBER: ${env.BUILD_NUMBER}"    
     println "currentbuild.displayName: ${currentBuild.displayName}"
