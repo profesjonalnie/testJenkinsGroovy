@@ -43,7 +43,7 @@ def testingOne(args = [:]){
     println "A tutaj zmiennaWidmo: ${args.zmiennaWidmo} (...${!!args.zmiennaWidmo})"
     println "currentbuild.displayName: ${currentBuild.displayName}"
     print "zmienna: ${zmienna}"
-    withEnv("ZMIENNA_SROD=blabluaefabub"){
+    withEnv(["ZMIENNA_SROD=blabluaefabub"]){
         print "${env.ZMIENNA_SROD}"
     }
     error("Test errora")
