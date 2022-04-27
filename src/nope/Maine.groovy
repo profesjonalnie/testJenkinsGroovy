@@ -40,9 +40,13 @@ def buildImage(args = [:]) {
 def testingOne(args = [:]){
     print "GIT_URL: ${GIT_URL}, env.GIT_URL: ${env.GIT_URL}"
     print "BUILD_NUMBER: ${BUILD_NUMBER}, env.BUILD_NUMBER: ${env.BUILD_NUMBER}"    
-    println "A tutaj brak danej zmiennej: ${args.zmiennaWidmo} (...${!!args.zmiennaWidmo})"
+    println "A tutaj zmiennaWidmo: ${args.zmiennaWidmo} (...${!!args.zmiennaWidmo})"
     println "currentbuild.displayName: ${currentBuild.displayName}"
     print "zmienna: ${zmienna}"
+    withEnv("ZMIENNA_SROD=blabluaefabub"){
+        print "${env.ZMIENNA_SROD}"
+    }
+    error("Test errora")
     if(args.TAG_NAME){
         print "Hurrey, I've got ${args.TAG_NAME}"
     } else {
