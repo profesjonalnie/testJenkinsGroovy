@@ -45,15 +45,20 @@ def testingOne(args = [:]){
     print "zmienna: ${zmienna}"
     withEnv(["ZMIENNA_SROD=blabluaefabub"]){
         print "${env.ZMIENNA_SROD}"
+    
     }
-    error("Test errora")
+    // error("Test errora")
+
+    myNameIs = "Earl"
+    println "My name is ${myNameIs}"
+    println "CUSTOM_CA: ${CUSTOM_CA}"
     if(args.TAG_NAME){
         print "Hurrey, I've got ${args.TAG_NAME}"
     } else {
         print "Nothing I'm getting, zero TAG_NAME: ${args.TAG_NAME}"
         print args.TAG_NAME
     }
-    imported.greet()
+    imported.greet id: "!@#!@#!@#!@#!@#"
     // build(job: "fisrt/master/124")
 
     if(args.abc){
